@@ -130,17 +130,17 @@ const Dashboard = () => {
     let phase1props = {
         handlenext: next,
         handleprev: prev,
-        disabled: phase1disabled
+        disabled: true //phase1disabled
     }
     let phase2props = {
         handlenext: next,
         handleprev: prev,
-        disabled: phase2disabled
+        disabled:true // phase2disabled
     }
     let phase3props = {
         handlenext: next,
         handleprev: prev,
-        disabled: phase3disabled
+        disabled:true// phase3disabled
     }
     return (
         <div>
@@ -305,8 +305,10 @@ const Payment = (props) => {
             facultydata: facultyAdvisorDetails
         }
         console.log(data)
-        if (Object.values(collegeData).includes('') || Object.values(bankDetails).includes('') || Object.values(facultyAdvisorDetails[0]).includes('')) {
-            return message.error('Please fill all the fields')
+        if (Object.values(collegeData).includes('') 
+        // || Object.values(bankDetails).includes('') || Object.values(facultyAdvisorDetails[0]).includes('')
+        ) {
+            return message.error('Please fill the college data')
         }
 
         console.log(data)
@@ -837,8 +839,13 @@ const Phase1 = (props) => {
 
 
     return (
-        <div className='dashboard-data'>
-            <div className='phase-desc'>
+        <div className='dashboard-data'
+
+        >
+            <div className='phase-desc'         style={{
+            filter: disabled ? 'blur(5px)' : 'none',
+            pointerEvents: disabled ? 'none' : 'auto'
+        }}>
                 <div className='desc' >
                     Kindly  make the payment of your phase 1 registration fee of ₹5000 via UPI ID or by scanning the QR Code and fill the form below. You are instructed to upload the payment proof in this form itself.
                 </div>
@@ -863,7 +870,7 @@ const Phase1 = (props) => {
             </div>
             <div className='contact-form'
                 style={{
-                    filter: disabled ? 'blur(1px)' : 'none',
+                    filter: disabled ? 'blur(5px)' : 'none',
                     pointerEvents: disabled ? 'none' : 'auto'
                 }}
             >

@@ -5,6 +5,8 @@ import '../../css/contact.css'
 import { FiArrowUpRight } from "react-icons/fi"
 import Footer from '../Footer'
 import { addDoc, collection } from "firebase/firestore"
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import { db } from '../../Firebase/init'
 import { ToastContainer, toast } from "react-toastify"
 import { useRef } from 'react'
@@ -15,7 +17,8 @@ function Contact() {
         email: "",
         message: "",
         team_name: "",
-        mobile: ""
+        mobile: "",
+        created:new Date().toString()
     })
     const InputEvent = (event) => {
         const { name, value } = event.target
@@ -26,7 +29,7 @@ function Contact() {
             }
         })
     }
-    const handleenter=(event)=>{
+    const handleenter = (event) => {
         if (event.key === "Enter") {
             handlesubmit()
         }
@@ -51,7 +54,7 @@ function Contact() {
             autoClose: false,
             hideProgressBar: true,
         })
-        
+
         try {
             addDoc(collection(db, "contact"), data)
             toast.update(toastId.current, {
@@ -65,7 +68,7 @@ function Contact() {
                 email: "",
                 message: "",
                 team_name: "",
-                mobile: ""
+                mobile: "",
             })
 
         }
@@ -94,15 +97,15 @@ function Contact() {
                         </div>
                         <div className='input-container'>
                             <label>E-mail</label><br />
-                            <input onChange={InputEvent} value={data.email} name="email"  />
+                            <input onChange={InputEvent} value={data.email} name="email" />
                         </div>
                         <div className='input-container'>
                             <label>Mobile</label><br />
-                            <input onChange={InputEvent} value={data.mobile} name="mobile"  />
+                            <input onChange={InputEvent} value={data.mobile} name="mobile" />
                         </div>
                         <div className='input-container'>
                             <label>Team Name (if registered)</label><br />
-                            <input onChange={InputEvent} value={data.team_name} name="team_name"  />
+                            <input onChange={InputEvent} value={data.team_name} name="team_name" />
                         </div>
                         <div className='input-containerx'>
                             <label>Message</label><br />

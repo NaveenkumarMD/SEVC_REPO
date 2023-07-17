@@ -19,6 +19,7 @@ function Queries() {
                         <div className='queries-table'>
                             {
                                 data && data.map((item,index)=>{
+
                                     return(
                                         <div key={index} className='queries-card'>
                                             <div className='queries-teamname'>Team Name :{item.team_name}</div>
@@ -26,6 +27,7 @@ function Queries() {
                                             <div className='queries-message'>Message:{item.message}</div>
                                             <div className='queries-mobile'> Mobile:{item.mobile}</div>
                                             <div className='queries-email'>Email:{item.email}</div>
+                                            <div className='queries-date'>Date:{item.created}</div>
                                         </div>
                                     )
                                 })
