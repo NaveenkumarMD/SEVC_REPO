@@ -10,20 +10,38 @@ import { toast, ToastContainer } from 'react-toastify'
 import sendmail from '../../../sendmails'
 import { MdDone } from "react-icons/md"
 import xlsx from "json-as-xlsx"
+import { useParams } from 'react-router-dom';
 
 function Teamview() {
     const location = useLocation()
-    const teamname = location.pathname.split("/")[3]
+    const {teamname} = useParams()
     const [teamdata, setTeamdata] = useState([])
     const fetchData = () => {
+    
         const q = query(collection(db, "users"), where("team_name", "==", teamname))
         const querySnapshot = getDocs(q)
         let teams = []
+
         querySnapshot.then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
+            console.log("smap",querySnapshot.empty)
+            querySnapshot.forEach((doc) => {       
                 setTeamdata(doc.data())
+
             })
+        }).catch(err=>{
+            console.log(err)
         })
+        // if(true){
+        //     let data=JSON.parse(localStorage.getItem("teams"))
+        //     console.log(data)
+        //     data.forEach(d=>{
+        //         console.log("team:",d.team_name,teamname,d.team_name === teamname)
+        //         if(d.team_name==teamname){
+        //             console.log("set")
+        //             setTeamdata(d)
+        //         }
+        //     })
+        // }
     }
     useEffect(() => {
         fetchData()
@@ -131,9 +149,6 @@ function Teamview() {
             }
 
         });
-        console.log(listItems)
-
-
         return listItems
     };
 
@@ -183,6 +198,7 @@ function Teamview() {
             <div className='teamview'>
 
                 <div className='home-container'>
+                    
                     <div className='title-1 home-title'> {teamdata && teamdata.team_name}</div>
                     <div>
                         <ol>

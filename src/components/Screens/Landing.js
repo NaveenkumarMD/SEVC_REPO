@@ -36,7 +36,10 @@ export default function Landing() {
           ref={carouselRef}
         >
 
-<div className="carousel-image" onMouseDown={handleclick} onMouseLeave={handleleave} onMouseUp={handleleave}>
+          <div className="carousel-image" onMouseDown={handleclick} onMouseLeave={handleleave} onMouseUp={handleleave}>
+            <img src={require("../../assets/landing/SEVC-2024_Launch-Poster_Final1.d194855c9c7f8a3eb5b8.webp")}/>
+          </div>
+          <div className="carousel-image" onMouseDown={handleclick} onMouseLeave={handleleave} onMouseUp={handleleave}>
             <img src={require("../../assets/landing/launchposter_wide.webp")}/>
           </div>
           <div className="carousel-image" onMouseDown={handleclick} onMouseLeave={handleleave} onMouseUp={handleleave}>

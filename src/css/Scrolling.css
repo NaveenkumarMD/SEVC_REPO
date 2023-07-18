@@ -12,7 +12,7 @@
     font-size: 20px;
     position: absolute;
     left: 0;
-    animation: move-text 15s linear infinite;
+    animation: move-text 10s linear infinite;
 
 }
 @media screen and (max-width: 600px) {
@@ -25,7 +25,7 @@
       transform: translateX(-100%);
     }
     to {
-      transform: translateX(500%);
+      transform: translateX(230%);
     }
   }
 @keyframes move-textmobile {

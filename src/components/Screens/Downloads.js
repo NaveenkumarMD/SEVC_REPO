@@ -26,8 +26,8 @@ function Downloads() {
                                 <div className='download-desc'>
                                     {/* <div className='download-titlex'>Rule book</div> */}
                                     <div className='download-descx'>
-                                        SEVC-2023 EVENT INFORMATION DOCUMENT
-                                        <a style={{display:"none"}} ref={downloadref} download href={require("../../assets/Downloads/SEVC 2023_EVENT INFORMATION DOCUMENT.pdf")}>download</a>
+                                        SEVC-2023 EVENT RULE BOOK
+                                        <a style={{display:"none"}} ref={downloadref} download href={require("../../assets/Downloads/SEVC-2024_Rulebook.pdf")}>download</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@ function Downloads() {
                         </div>
                             
                         }
-                                                <div className='download-container'>
+                        <div className='download-container'>
                             <div className='one'>
                                 <div className='image-cont'>
                                     <img src={require("../../assets/document_icon.png")} alt='download' />
