@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { Context } from '../../App'
 function Downloads() {
     const downloadref=useRef(null)
+    const downloadref1=useRef(null)
     const { state, dispatch } = useContext(Context)
     return (
         < >
@@ -27,15 +28,15 @@ function Downloads() {
                                     {/* <div className='download-titlex'>Rule book</div> */}
                                     <div className='download-descx'>
                                         SEVC-2023 EVENT RULE BOOK
-                                        <a style={{display:"none"}} ref={downloadref} download href={require("../../assets/Downloads/SEVC-2024_Rulebook.pdf")}>download</a>
+                                        <a style={{display:"none"}} ref={downloadref1} download href={require("../../assets/Downloads/SEVC-2024_Rulebook.pdf")}>download</a>
                                     </div>
                                 </div>
                             </div>
-                            <div className='download-btn' onClick={()=>downloadref.current.click()} >
+                            <div className='download-btn' onClick={()=>downloadref1.current.click()} >
                                 <div>Download</div>
                                 <HiDownload />
                             </div>
-                        </div>
+                        </div>  
                             
                         }
                         <div className='download-container'>
